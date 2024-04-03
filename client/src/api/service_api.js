@@ -20,3 +20,15 @@ export const commonServiceAPI = axios.create({
 export const searchSuggestionServiceAPI = axios.create({
     baseURL: REACT_APP_SEARCH_SUGGESTION_SERVICE_URL || `http://localhost:${REACT_APP_SEARCH_SUGGESTION_SERVICE_PORT}`
 })
+
+export const authServiceAPIGet = axios.get({
+    baseURL: REACT_APP_AUTHENTICATION_SERVICE_URL || `http://localhost:${REACT_APP_AUTHENTICATION_SERVICE_PORT}`
+})
+
+export const commonServiceAPIGet = axios.get({
+    baseURL: REACT_APP_COMMON_DATA_SERVICE_URL || `http://localhost:${REACT_APP_COMMON_DATA_SERVICE_PORT}`
+})
+
+export const searchSuggestionServiceAPIGet = axios.get({
+    baseURL: REACT_APP_SEARCH_SUGGESTION_SERVICE_URL || `http://localhost:${REACT_APP_SEARCH_SUGGESTION_SERVICE_PORT}`
+})

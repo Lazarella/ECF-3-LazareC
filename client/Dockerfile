@@ -1,15 +1,23 @@
+
 FROM node:14-alpine AS build
 
 WORKDIR /app
 
-ENV PORT=5000
+COPY package.json yarn.lock ./
 
-COPY  package*.json ./
+RUN yarn install
 
-RUN yarn install 
+COPY . .
 
-COPY . . /app/
+RUN yarn build
 
-EXPOSE ${PORT}
 
-CMD [ "node","app.js" ]
+FROM nginx:alpine
+
+COPY --from=build /app/build /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+
+
